@@ -30,15 +30,14 @@
       <file leaf-file-name="App.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zgc123/www/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="211" column="7" lean-forward="true" selection-start-line="211" selection-start-column="7" selection-end-line="211" selection-end-column="7" />
+            <state relative-caret-position="-2124">
+              <caret line="86" column="39" lean-forward="true" selection-start-line="86" selection-start-column="39" selection-end-line="86" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1119#1681#0" expanded="true" />
                 <element signature="e#1680#1681#0" expanded="true" />
                 <element signature="e#1716#2278#0" expanded="true" />
                 <element signature="e#2277#2278#0" expanded="true" />
-                <element signature="e#2915#3477#0" expanded="true" />
                 <element signature="e#3476#3477#0" expanded="true" />
                 <element signature="e#3512#4074#0" expanded="true" />
                 <element signature="e#4073#4074#0" expanded="true" />
@@ -238,10 +237,10 @@
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -423,12 +422,12 @@
       <updated>1530718227201</updated>
       <workItem from="1530718232502" duration="979000" />
       <workItem from="1530720781086" duration="15274000" />
-      <workItem from="1530758367095" duration="20895000" />
+      <workItem from="1530758367095" duration="19277000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37148000" />
+    <option name="totallyTimeSpent" value="35530000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -444,12 +443,12 @@
       <window_info anchor="right" id="Maven Projects" order="3" weight="0.32995737" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32897604" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32897604" />
       <window_info anchor="right" id="Coverage" side_tool="true" weight="0.32995737" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18443497" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18443497" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32897604" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -599,7 +598,6 @@
             <element signature="e#1680#1681#0" expanded="true" />
             <element signature="e#1716#2278#0" expanded="true" />
             <element signature="e#2277#2278#0" expanded="true" />
-            <element signature="e#2915#3477#0" expanded="true" />
             <element signature="e#3476#3477#0" expanded="true" />
             <element signature="e#3512#4074#0" expanded="true" />
             <element signature="e#4073#4074#0" expanded="true" />
@@ -626,7 +624,6 @@
             <element signature="e#1680#1681#0" expanded="true" />
             <element signature="e#1716#2278#0" expanded="true" />
             <element signature="e#2277#2278#0" expanded="true" />
-            <element signature="e#2915#3477#0" expanded="true" />
             <element signature="e#3476#3477#0" expanded="true" />
             <element signature="e#3512#4074#0" expanded="true" />
             <element signature="e#4073#4074#0" expanded="true" />
@@ -705,15 +702,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zgc123/www/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="211" column="7" lean-forward="true" selection-start-line="211" selection-start-column="7" selection-end-line="211" selection-end-column="7" />
+        <state relative-caret-position="-2124">
+          <caret line="86" column="39" lean-forward="true" selection-start-line="86" selection-start-column="39" selection-end-line="86" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1119#1681#0" expanded="true" />
             <element signature="e#1680#1681#0" expanded="true" />
             <element signature="e#1716#2278#0" expanded="true" />
             <element signature="e#2277#2278#0" expanded="true" />
-            <element signature="e#2915#3477#0" expanded="true" />
             <element signature="e#3476#3477#0" expanded="true" />
             <element signature="e#3512#4074#0" expanded="true" />
             <element signature="e#4073#4074#0" expanded="true" />
@@ -740,7 +736,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited />
+          <last-edited>No facets are configured</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

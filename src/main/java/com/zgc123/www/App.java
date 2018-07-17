@@ -2,6 +2,7 @@ package com.zgc123.www;
 
 import com.zgc123.www.utils.HttpClientPoolUtil;
 import org.apache.commons.io.FileUtils;
+import org.apache.http.Header;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
@@ -218,7 +219,7 @@ public class App {
      * @throws IOException
      */
     private static String sendGet(String charset, String param, String uri,int maxCount,int count) {
-        String execute = HttpClientPoolUtil.execute(uri, charset);
+        String execute = HttpClientPoolUtil.execute(uri, charset,new Header[]{});
 
         if (!"".equals(execute)){
             return execute;
@@ -248,7 +249,7 @@ public class App {
         request.setHeader("Accept-Language", "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7");
         request.setHeader("Connection", "Connection");
         request.setHeader("Host", "img1.mm131.me");
-        request.setHeader("Referer", "http://www.mm131.com/qingchun/3091_2.html");
+        request.setHeader("Referer", "http://www.mm131.www/qingchun/3091_2.html");
         File file = new File(localFileUrl);
         if (!file.exists()) {
             file.mkdirs();

@@ -1,10 +1,7 @@
 package com.zgc123.www.utils;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.http.HeaderElement;
-import org.apache.http.HeaderElementIterator;
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
+import org.apache.http.*;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.*;
 import org.apache.http.client.protocol.HttpClientContext;
@@ -17,6 +14,8 @@ import org.apache.http.message.BasicHeaderElementIterator;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.util.EntityUtils;
+
+import java.io.InputStream;
 
 /**
  * @Author: ZGC
@@ -97,11 +96,11 @@ public class HttpClientPoolUtil {
     /**
      * 执行http post请求 默认采用Content-Type：application/json，Accept：application/json
      *
-     * @param uri 请求地址
-     * @param data  请求数据
+     * @param uri  请求地址
+     * @param data 请求数据
      * @return
      */
-    public static String execute(String uri, String data,String charset) {
+    public static String execute(String uri, String data, String charset) {
         long startTime = System.currentTimeMillis();
         HttpEntity httpEntity = null;
         HttpEntityEnclosingRequestBase method = null;
@@ -120,7 +119,7 @@ public class HttpClientPoolUtil {
             }
 
         } catch (Exception e) {
-            if(method != null){
+            if (method != null) {
                 method.abort();
             }
             e.printStackTrace();
@@ -145,10 +144,10 @@ public class HttpClientPoolUtil {
     /**
      * 创建请求
      *
-     * @param uri 请求url
-     * @param methodName 请求的方法类型
+     * @param uri         请求url
+     * @param methodName  请求的方法类型
      * @param contentType contentType类型
-     * @param timeout 超时时间
+     * @param timeout     超时时间
      * @return
      */
     public static HttpRequestBase getRequest(String uri, String methodName, String contentType, int timeout) {
@@ -186,7 +185,7 @@ public class HttpClientPoolUtil {
      * @param uri
      * @return
      */
-    public static String execute(String uri,String charset) {
+    public static String execute(String uri, String charset, Header[] headers) {
         long startTime = System.currentTimeMillis();
         HttpEntity httpEntity = null;
         HttpRequestBase method = null;
@@ -196,6 +195,9 @@ public class HttpClientPoolUtil {
                 initPools();
             }
             method = getRequest(uri, HttpGet.METHOD_NAME, DEFAULT_CONTENT_TYPE, 0);
+            if (headers != null && headers.length > 0) {
+                method.setHeaders(headers);
+            }
             HttpContext context = HttpClientContext.create();
             CloseableHttpResponse httpResponse = httpClient.execute(method, context);
             httpEntity = httpResponse.getEntity();
@@ -204,7 +206,7 @@ public class HttpClientPoolUtil {
 //                System.out.println("请求URL: "+uri+"+  返回状态码："+httpResponse.getStatusLine().getStatusCode());
             }
         } catch (Exception e) {
-            if(method != null){
+            if (method != null) {
                 method.abort();
             }
             e.printStackTrace();
@@ -222,5 +224,55 @@ public class HttpClientPoolUtil {
             }
         }
         return responseBody;
+    }
+
+    /**
+     * 执行GET 请求
+     *
+     * @param uri
+     * @return
+     */
+    public static InputStream executeGetInputStream(String uri, Header[] headers) {
+        long startTime = System.currentTimeMillis();
+        HttpEntity httpEntity = null;
+        HttpRequestBase method = null;
+        String responseBody = "";
+        try {
+            if (httpClient == null) {
+                initPools();
+            }
+            method = getRequest(uri, HttpGet.METHOD_NAME, DEFAULT_CONTENT_TYPE, 0);
+            if (headers != null && headers.length > 0) {
+                method.setHeaders(headers);
+            }
+            HttpContext context = HttpClientContext.create();
+            CloseableHttpResponse httpResponse = httpClient.execute(method, context);
+            httpEntity = httpResponse.getEntity();
+            return httpEntity.getContent();
+
+
+//            if (httpEntity != null) {
+//                responseBody = EntityUtils.toString(httpEntity, charset);
+////                System.out.println("请求URL: "+uri+"+  返回状态码："+httpResponse.getStatusLine().getStatusCode());
+//            }
+        } catch (Exception e) {
+            if (method != null) {
+                method.abort();
+            }
+            e.printStackTrace();
+            System.out.println("execute get request exception, url:" + uri + ", exception:" + e.toString() + ",cost time(ms):"
+                    + (System.currentTimeMillis() - startTime));
+        } finally {
+            if (httpEntity != null) {
+                try {
+                    EntityUtils.consumeQuietly(httpEntity);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    System.out.println("close response exception, url:" + uri + ", exception:" + e.toString() + ",cost time(ms):"
+                            + (System.currentTimeMillis() - startTime));
+                }
+            }
+        }
+        return null;
     }
 }
